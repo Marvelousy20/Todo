@@ -1,5 +1,7 @@
 <script>
   import { addTodo } from "../stores/todoStore";
+  import { userData } from "../stores/authStore";
+
   let todo = "";
   let validateError = "";
   let min = 10;
@@ -18,7 +20,7 @@
 
   const handleSubmit = () => {
     if (todo.trim().length > min) {
-      addTodo(todo);
+      addTodo(todo, $userData.id);
       todo = "";
     }
   };
